@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,10 +21,16 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, AddTodoComponent, TodoListComponent, TodoComponent],
+  declarations: [
+    AppComponent,
+    AddTodoComponent,
+    TodoListComponent,
+    TodoComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],

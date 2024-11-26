@@ -1,1 +1,34 @@
-<p>add-todo works!</p>
+<div class="w-full max-w-xs flex justify-center mx-auto mt-5">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+  >
+    <div class="field flex gap-3 mb-4">
+      <label class="block text-gray-700 text-xl font-bold mb-2" for="username"
+        >Task:
+      </label>
+      <input
+        formControlName="todo"
+        type="text"
+        class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="username"
+        type="text"
+        placeholder="Username"
+        [class.border-red-500]="check('username')"
+      />
+    </div>
+    <span *ngIf="check('username')" class="text-center block w-full mb-3"
+      >This field is required.</span
+    >
+
+    <div>
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Add Task
+      </button>
+    </div>
+  </form>
+</div>
