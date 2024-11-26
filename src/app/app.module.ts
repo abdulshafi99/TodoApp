@@ -4,15 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyA19eYLKG_AJJrKI7rX1hGT2H2GT20UY0A',
+  authDomain: 'todo-app-d7431.firebaseapp.com',
+  projectId: 'todo-app-d7431',
+  storageBucket: 'todo-app-d7431.firebasestorage.app',
+  messagingSenderId: '298966269288',
+  appId: '1:298966269288:web:d56b24075331a90b95aadd',
+};
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

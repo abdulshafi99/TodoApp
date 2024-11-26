@@ -1,0 +1,22 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="Ldu4dIvItLWIQPtr1XXd">
+        <mxGraphModel dx="933" dy="533" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="uVsHZ_9BZHPB59tA9Iv1-1" value="&lt;font size=&quot;3&quot;&gt;TodoApp&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="uVsHZ_9BZHPB59tA9Iv1-2" value="&lt;font size=&quot;3&quot;&gt;Todo List&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="160" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="uVsHZ_9BZHPB59tA9Iv1-3" value="&lt;font size=&quot;3&quot;&gt;Add Todo&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="160" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="uVsHZ_9BZHPB59tA9Iv1-5" value="&lt;font size=&quot;3&quot;&gt;Todo&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fontColor=#FFFFFF;fillColor=#182E3E;" parent="1" vertex="1">
+                    <mxGeometry x="123" y="270" width="114" height="48" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
