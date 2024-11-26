@@ -17,9 +17,21 @@ export class TaskService {
     console.log(task);
   }
 
-  updateTask(id: number) {}
+  updateTaskStatus(id: number) {
+    const index = this.tasks.findIndex((task) => task.id === id);
+    const status = this.tasks[index].status;
+    this.tasks[index].status = !status;
 
-  deleteTask(id: number) {}
+    console.log(this.tasks);
+  }
+
+  deleteTask(id: number) {
+    this.tasks.splice(
+      this.tasks.findIndex((task) => task.id === id),
+      1
+    );
+    console.log(this.tasks);
+  }
 }
 
 export interface Task {
