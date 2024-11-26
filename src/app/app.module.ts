@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AddTodoComponent } from './add-todo/add-todo.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoComponent } from './todo/todo.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA19eYLKG_AJJrKI7rX1hGT2H2GT20UY0A',
@@ -17,7 +20,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AddTodoComponent, TodoListComponent, TodoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
