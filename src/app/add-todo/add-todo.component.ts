@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-import { TaskService } from '../task.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { FireService } from '../tasks/fire.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -13,8 +8,7 @@ import {
   styles: [],
 })
 export class AddTodoComponent {
-  counter = makeCounter();
-  constructor(private fb: FormBuilder, private taskService: TaskService) {}
+  constructor(private fb: FormBuilder, private fireService: FireService) {}
 
   addTask = this.fb.group({
     task: ['', Validators.required],
@@ -24,11 +18,15 @@ export class AddTodoComponent {
     this.isSubmitted = true;
 
     let task = {
-      id: this.counter(),
+      id: Date.now(),
       task: this.addTask.value.task,
       status: false,
     };
-    this.taskService.addTask(task);
+
+    this.fireService.addTask(task).then((res) => {
+      console.log(res);
+      console.log('task added');
+    });
 
     this.addTask.reset();
   }
@@ -42,11 +40,4 @@ export class AddTodoComponent {
         this.isSubmitted)
     );
   }
-}
-
-function makeCounter(n = 0) {
-  let counter = n;
-  return function () {
-    return counter++;
-  };
 }

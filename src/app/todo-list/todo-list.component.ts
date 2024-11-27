@@ -1,20 +1,31 @@
 import { Component } from '@angular/core';
-import { TaskService } from '../task.service';
+import { Task } from '../tasks/task';
+import { OnInit } from '@angular/core';
+
+import { FireService } from '../tasks/fire.service';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styles: [],
 })
-export class TodoListComponent {
-  tasks = this.taskService.getTasks();
-  constructor(private taskService: TaskService) {}
+export class TodoListComponent implements OnInit {
+  tasks: Task[] = [];
 
-  updateTaskStatus(id: number) {
-    this.taskService.updateTaskStatus(id);
+  constructor(private fireService: FireService) {}
+
+  ngOnInit(): void {
+    this.fireService.getTasks().subscribe((tasks) => {
+      this.tasks = tasks;
+    });
+  }
+
+  updateTaskStatus(id: number, newTask: Task) {
+    this.fireService.updateTask(id, newTask);
+    for (let task of this.tasks) console.log(task);
   }
 
   deleteTask(id: number) {
-    this.taskService.deleteTask(id);
+    this.fireService.deleteTask(id);
   }
 }

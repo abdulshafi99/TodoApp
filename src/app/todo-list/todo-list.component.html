@@ -5,7 +5,13 @@
   >
     <input
       type="checkbox"
-      (change)="updateTaskStatus(task.id)"
+      (change)="
+        updateTaskStatus(task.id, {
+          id: task.id,
+          task: task.task,
+          status: !task.status
+        })
+      "
       [checked]="task.status === true"
       class="w-6 h-6"
     />
