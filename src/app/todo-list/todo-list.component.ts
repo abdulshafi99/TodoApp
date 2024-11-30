@@ -28,4 +28,8 @@ export class TodoListComponent implements OnInit {
   deleteTask(id: number) {
     this.fireService.deleteTask(id);
   }
+
+  deleteAllTasks() {
+    this.fireService.deleteAllTasks();
+  }
 }
