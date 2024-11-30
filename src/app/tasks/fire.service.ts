@@ -35,6 +35,23 @@ export class FireService {
     return deleteDoc(taskRef);
   }
 
+  deleteAllTasks() {
+    const taskCollection = collection(this.firestore, 'todos');
+
+    const tasksObservable = collectionData(taskCollection, {
+      idField: 'id',
+    }) as Observable<Task[]>;
+
+    tasksObservable.subscribe((tasks) => {
+      for (let task of tasks) {
+        {
+          const taskRef = doc(this.firestore, `todos/${task.id}`);
+          deleteDoc(taskRef);
+        }
+      }
+    });
+  }
+
   updateTask(id: number, newTask: Task) {
     const taskRef = doc(this.firestore, `todos/${id}`);
     return setDoc(taskRef, newTask);
