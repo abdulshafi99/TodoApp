@@ -6,7 +6,7 @@
     <input
       type="checkbox"
       (change)="
-        updateTaskStatus(task.id, {
+        updateTaskStatus({
           id: task.id,
           task: task.task,
           status: !task.status

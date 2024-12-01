@@ -20,12 +20,12 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  updateTaskStatus(id: number, newTask: Task) {
-    this.fireService.updateTask(id, newTask);
+  updateTaskStatus(newTask: Task) {
+    this.fireService.updateTask(newTask);
     for (let task of this.tasks) console.log(task);
   }
 
-  deleteTask(id: number) {
+  deleteTask(id: string) {
     this.fireService.deleteTask(id);
   }
 

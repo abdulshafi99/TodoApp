@@ -1,5 +1,5 @@
 export interface Task {
-  id: number;
-  task: string | null | undefined;
+  id: string;
+  task: string;
   status: boolean;
 }

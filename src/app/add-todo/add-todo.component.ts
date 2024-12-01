@@ -18,7 +18,6 @@ export class AddTodoComponent {
     this.isSubmitted = true;
 
     let task = {
-      id: Date.now(),
       task: this.addTask.value.task,
       status: false,
     };

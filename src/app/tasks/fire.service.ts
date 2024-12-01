@@ -11,6 +11,7 @@ import {
 } from '@angular/fire/firestore';
 import { Task } from './task';
 import { documentId, setDoc } from 'firebase/firestore';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -25,12 +26,16 @@ export class FireService {
     >;
   }
 
-  addTask(task: Task): Promise<any> {
+  addTask(task: {
+    task: string | null | undefined;
+    status: boolean;
+  }): Promise<any> {
+    const id = uuidv4();
     const taskCollection = collection(this.firestore, 'todos');
-    return addDoc(taskCollection, task);
+    return setDoc(doc(taskCollection, id), task);
   }
 
-  deleteTask(id: number) {
+  deleteTask(id: string) {
     const taskRef = doc(this.firestore, `todos/${id}`);
     return deleteDoc(taskRef);
   }
@@ -52,8 +57,8 @@ export class FireService {
     });
   }
 
-  updateTask(id: number, newTask: Task) {
-    const taskRef = doc(this.firestore, `todos/${id}`);
+  updateTask(newTask: Task) {
+    const taskRef = doc(this.firestore, `todos/${newTask.id}`);
     return setDoc(taskRef, newTask);
   }
 }
