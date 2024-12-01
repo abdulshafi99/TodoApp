@@ -9,7 +9,7 @@ import {
   deleteDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { Task } from './task';
+import { Task } from '../task.interface';
 import { documentId, setDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
 
