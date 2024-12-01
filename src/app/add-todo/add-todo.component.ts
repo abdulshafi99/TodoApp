@@ -15,28 +15,23 @@ export class AddTodoComponent {
   });
 
   onSubmit(): void {
-    this.isSubmitted = true;
-
+    if (this.addTask.invalid) {
+      return;
+    }
     let task = {
       task: this.addTask.value.task,
       status: false,
     };
 
-    this.fireService.addTask(task).then((res) => {
-      console.log(res);
-      console.log('task added');
-    });
+    this.fireService.addTask(task).then((res) => {});
 
     this.addTask.reset();
   }
 
-  isSubmitted = false;
   check(feild: string): boolean | undefined {
     return (
       this.addTask.get(feild)?.invalid &&
-      (this.addTask.get(feild)?.dirty ||
-        this.addTask.get(feild)?.touched ||
-        this.isSubmitted)
+      (this.addTask.get(feild)?.dirty || this.addTask.get(feild)?.touched)
     );
   }
 }

@@ -22,7 +22,6 @@ export class TodoListComponent implements OnInit {
 
   updateTaskStatus(newTask: Task) {
     this.fireService.updateTask(newTask);
-    for (let task of this.tasks) console.log(task);
   }
 
   deleteTask(id: string) {
