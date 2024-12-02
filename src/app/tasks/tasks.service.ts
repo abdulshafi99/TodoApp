@@ -7,7 +7,7 @@ import {
   doc,
   deleteDoc,
 } from '@angular/fire/firestore';
-import { Task } from '../task.interface';
+import { Task } from './task.interface';
 import { setDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -27,13 +27,13 @@ export class FireService {
   addTask(task: {
     task: string | null | undefined;
     status: boolean;
-  }): Promise<any> {
+  }): Promise<void> {
     const id = uuidv4();
     const taskCollection = collection(this.firestore, 'todos');
     return setDoc(doc(taskCollection, id), task);
   }
 
-  deleteTask(id: string) {
+  deleteTask(id: string): Promise<void> {
     const taskRef = doc(this.firestore, `todos/${id}`);
     return deleteDoc(taskRef);
   }
@@ -55,7 +55,7 @@ export class FireService {
     });
   }
 
-  updateTask(newTask: Task) {
+  updateTask(newTask: Task): Promise<void> {
     const taskRef = doc(this.firestore, `todos/${newTask.id}`);
     return setDoc(taskRef, newTask);
   }

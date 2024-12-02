@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Task } from '../task.interface';
+import { Task } from '../tasks/task.interface';
 import { OnInit } from '@angular/core';
 
-import { FireService } from '../tasks/fire.service';
+import { FireService } from '../tasks/tasks.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,10 +14,13 @@ export class TodoListComponent implements OnInit {
 
   constructor(private fireService: FireService) {}
 
-  ngOnInit(): void {
+  getTasks() {
     this.fireService.getTasks().subscribe((tasks) => {
       this.tasks = tasks;
     });
+  }
+  ngOnInit(): void {
+    this.getTasks();
   }
 
   updateTaskStatus(newTask: Task) {

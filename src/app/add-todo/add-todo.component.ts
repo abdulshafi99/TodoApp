@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FireService } from '../tasks/fire.service';
+import { FireService } from '../tasks/tasks.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -18,20 +18,13 @@ export class AddTodoComponent {
     if (this.addTask.invalid) {
       return;
     }
+
     let task = {
       task: this.addTask.value.task,
       status: false,
     };
 
-    this.fireService.addTask(task).then((res) => {});
-
+    this.fireService.addTask(task);
     this.addTask.reset();
-  }
-
-  check(feild: string): boolean | undefined {
-    return (
-      this.addTask.get(feild)?.invalid &&
-      (this.addTask.get(feild)?.dirty || this.addTask.get(feild)?.touched)
-    );
   }
 }
