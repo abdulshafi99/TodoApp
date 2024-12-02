@@ -13,8 +13,8 @@
 <router-outlet></router-outlet>
 
 <div
-  [ngClass]="isMessage ? 'block' : 'hidden'"
+  [ngClass]="messageService.isMessage ? 'block' : 'hidden'"
   class="w-fit mx-auto mt-4 p-1 text-gray-700 bg-lime-400 rounded"
 >
-  {{ message }}
+  {{ messageService.message }}
 </div>

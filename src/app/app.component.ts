@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'TodoApp';
 
-  message = '';
-  isMessage = false;
-
-  showMessage(message: string) {
-    this.isMessage = true;
-    this.message = message;
-
-    setTimeout(() => {
-      this.isMessage = false;
-      this.message = '';
-    }, 5000);
-  }
+  constructor(public messageService: MessageService) {}
 }
