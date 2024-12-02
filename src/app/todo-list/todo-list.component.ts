@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../tasks/task.interface';
-import { OnInit } from '@angular/core';
 
 import { FireService } from '../tasks/tasks.service';
 

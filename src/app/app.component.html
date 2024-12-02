@@ -10,7 +10,11 @@
     >Todo List</a
   >
 </nav>
-<router-outlet></router-outlet>
+<router-outlet [showMessage]="showMessage"></router-outlet>
 
-<!-- <app-add-todo></app-add-todo> -->
-<!-- <app-todo-list></app-todo-list> -->
+<div
+  [ngClass]="isMessage ? 'block' : 'hidden'"
+  class="w-fit mx-auto mt-4 p-1 text-gray-700 bg-lime-400 rounded"
+>
+  {{ message }}
+</div>
