@@ -1,2 +1,16 @@
-<app-add-todo></app-add-todo>
-<app-todo-list></app-todo-list>
+<nav class="flex justify-center gap-4 p-4 mb-4 shadow-md">
+  <a
+    [routerLink]="['']"
+    class="text-xl text-gray-900 p-3 rounded bg-slate-300 hover:bg-slate-500 transition-all"
+    >Add Task</a
+  >
+  <a
+    [routerLink]="['todoList']"
+    class="text-xl text-gray-900 p-3 rounded bg-slate-300 hover:bg-slate-500 transition-all"
+    >Todo List</a
+  >
+</nav>
+<router-outlet></router-outlet>
+
+<!-- <app-add-todo></app-add-todo> -->
+<!-- <app-todo-list></app-todo-list> -->

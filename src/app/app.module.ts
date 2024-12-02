@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+
+const routes: Routes = [
+  { path: '', component: AddTodoComponent },
+  { path: 'todoList', component: TodoListComponent },
+];
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA19eYLKG_AJJrKI7rX1hGT2H2GT20UY0A',
@@ -23,8 +29,8 @@ const firebaseConfig = {
   declarations: [AppComponent, AddTodoComponent, TodoListComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(routes),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],
