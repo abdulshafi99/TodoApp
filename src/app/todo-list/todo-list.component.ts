@@ -32,6 +32,8 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteAllTasks() {
-    this.fireService.deleteAllTasks();
+    for (let task of this.tasks) {
+      this.deleteTask(task.id);
+    }
   }
 }
