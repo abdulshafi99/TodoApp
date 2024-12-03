@@ -11,6 +11,7 @@ import { MessageService } from '../message.service';
 })
 export class TodoListComponent implements OnInit {
   tasks: Task[] = [];
+  isModalOpen: boolean = false;
 
   constructor(
     private fireService: FireService,
@@ -36,11 +37,20 @@ export class TodoListComponent implements OnInit {
     this.messageService.showMessage('Task Deleted');
   }
 
+  closeConfirmModal() {
+    this.isModalOpen = false;
+  }
+
+  openConfirmModal() {
+    this.isModalOpen = true;
+  }
+
   deleteAllTasks() {
     for (let task of this.tasks) {
       this.deleteTask(task.id);
     }
 
     this.messageService.showMessage('All Task Updated');
+    this.closeConfirmModal();
   }
 }
