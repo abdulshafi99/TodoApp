@@ -1,0 +1,53 @@
+<div class="flex justify-center items-center flex-col">
+  <div
+    *ngFor="let task of tasks"
+    class="flex items-center gap-2 bg-white shadow-md rounded px-8 py-4 mb-2"
+  >
+    <input
+      type="checkbox"
+      (change)="
+        updateTaskStatus({
+          id: task.id,
+          task: task.task,
+          status: !task.status
+        })
+      "
+      [checked]="task.status === true"
+      class="w-6 h-6"
+    />
+    <p class="text-2xl" [class.line-through]="task.status === true">
+      {{ task.task }}
+    </p>
+    <a (click)="deleteTask(task.id)" class="cursor-pointer"
+      ><em class="material-icons text-2xl">delete</em>
+    </a>
+  </div>
+
+  <button
+    (click)="openConfirmModal()"
+    class="cursor-pointer bg-red-500 p-3 mt-2 rounded"
+  >
+    <em class="material-icons text-4xl">delete</em>
+  </button>
+</div>
+
+<div
+  *ngIf="isModalOpen"
+  class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50"
+>
+  <div class="bg-white p-6 rounded shadow-lg text-center">
+    <h2 class="text-2xl mb-4">Confirm Deletion</h2>
+    <p class="mb-4">Are you sure you want to delete all tasks?</p>
+    <div class="flex justify-around">
+      <button
+        (click)="deleteAllTasks()"
+        class="bg-red-500 text-white p-2 rounded"
+      >
+        Confirm
+      </button>
+      <button (click)="closeConfirmModal()" class="bg-gray-300 p-2 rounded">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
